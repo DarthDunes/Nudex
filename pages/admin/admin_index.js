@@ -197,6 +197,11 @@ export default function Admin() {
                 placeholder={`${tab.slice(0, -1)} name`} style={styles.input} />
               <input value={newRow.description || ''} onChange={e => setNewRow(p => ({ ...p, description: e.target.value }))}
                 placeholder="Description (optional)" style={styles.input} />
+              <input value={newRow.cover_image_url || ''} onChange={e => setNewRow(p => ({ ...p, cover_image_url: e.target.value }))}
+                placeholder="Image URL (e.g. https://i.imgur.com/abc.jpg)" style={styles.input} />
+              {newRow.cover_image_url && (
+                <img src={newRow.cover_image_url} style={{ height: 60, borderRadius: 6, border: '1px solid var(--border)' }} alt="preview" />
+              )}
               {tab === 'platforms' && (
                 <>
                   <input value={newRow.base_url || ''} onChange={e => setNewRow(p => ({ ...p, base_url: e.target.value }))}
